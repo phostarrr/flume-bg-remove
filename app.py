@@ -2,11 +2,15 @@ from flask import Flask, render_template, request, send_from_directory, redirect
 import requests 
 import os
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+
 
 app = Flask(__name__)
 
 # --- CONFIGURATION ---
-API_KEY = "2ycZNwEiuHKr9AxyfBUvhZDf" 
+load_dotenv()
+
+API_KEY = os.getenv('API_KEY') 
 UPLOAD_FOLDER = 'uploads'
 RESULT_FOLDER = 'results'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
